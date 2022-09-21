@@ -1,0 +1,82 @@
+CartItemRepository.java
+package com.ecommerce.repository;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.ecommerce.model.CartItem;
+@Repository
+public interface CartItemRepository extends CrudRepository<CartItem, Long> {
+	public List<CartItem> findCartItemByCartCartid(long cartid);
+	public CartItem findCartItemByProductProductid(long productid);
+}
+CartRepository.java
+package com.ecommerce.repository;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.ecommerce.model.Cart;
+@Repository
+public interface CartRepository extends CrudRepository<Cart, Long> {
+	public Cart findByUserUserid(long userid);
+}
+OrderItemRepository.java
+package com.ecommerce.repository;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.ecommerce.model.OrderItem;
+@Repository
+public interface OrderItemRepository extends CrudRepository<OrderItem, Long> {
+
+}
+OrdersRepository.java
+package com.ecommerce.repository;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.ecommerce.model.Orders;
+@Repository
+public interface OrdersRepository extends CrudRepository<Orders, Long> {
+
+}
+ProductDetailRepository.java
+package com.ecommerce.repository;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.ecommerce.model.ProductDetail;
+@Repository
+public interface ProductDetailRepository extends CrudRepository<ProductDetail, Long> {
+	public ProductDetail findByProductProductid(long productid);
+}
+ProductRepository.java
+package com.ecommerce.repository;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.ecommerce.model.Product;
+@Repository
+public interface ProductRepository extends CrudRepository<Product, Long> {
+	public List<Product> findByProductname(String name);
+}
+UserRepository.java
+package com.ecommerce.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.ecommerce.model.User;
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+	public User findByEmail(String email);
+}
